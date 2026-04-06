@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <h1>Coaches who coach with intention</h1>
+    <p>Certified professionals who help you train with clarity and confidence.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="card-grid">
+      {% for trainer in trainers %}
+      <div class="info-card">
+        <h3>{{ trainer.name }}</h3>
+        <p>{{ trainer.specialty }}</p>
+        <p class="muted">{{ trainer.experience }} experience</p>
+        <div class="chip-row">
+          <span class="chip">Nutrition guidance</span>
+          <span class="chip">Mobility plans</span>
+          <span class="chip">Performance testing</span>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

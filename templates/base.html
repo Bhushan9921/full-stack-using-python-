@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PulseFit Gym</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-content">
+        <div class="logo">PulseFit Gym</div>
+        <nav class="nav-links">
+          <a href="{{ url_for('index') }}">Home</a>
+          <a href="{{ url_for('classes') }}">Classes</a>
+          <a href="{{ url_for('trainers') }}">Trainers</a>
+          <a href="{{ url_for('contact') }}">Contact</a>
+        </nav>
+        <a class="cta-button" href="{{ url_for('contact') }}">Book a Tour</a>
+      </div>
+    </header>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div class="container flash-area">
+          {% for category, message in messages %}
+            <div class="flash {{ category }}">{{ message }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <main>
+      {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-content">
+        <div>
+          <h4>PulseFit Gym</h4>
+          <p>Open daily · 5am - 10pm</p>
+        </div>
+        <div>
+          <h4>Location</h4>
+          <p>120 Energy Ave · Austin, TX</p>
+        </div>
+        <div>
+          <h4>Follow</h4>
+          <p>@pulsefitgym</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  </body>
+</html>
