@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <h1>Book a tour or free consult</h1>
+    <p>Tell us about your goals and we will match you with the right coach.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container split">
+    <form class="contact-form" method="post" action="{{ url_for('contact') }}">
+      <label>
+        Full name
+        <input type="text" name="name" placeholder="Jordan Smith" required />
+      </label>
+      <label>
+        Email address
+        <input type="email" name="email" placeholder="jordan@email.com" required />
+      </label>
+      <label>
+        Training goal
+        <select name="goal" required>
+          <option value="">Choose a goal</option>
+          <option value="Strength">Build strength</option>
+          <option value="Conditioning">Improve conditioning</option>
+          <option value="Recovery">Prioritize recovery</option>
+        </select>
+      </label>
+      <label>
+        Message
+        <textarea name="message" rows="5" placeholder="Tell us about your schedule and goals." required></textarea>
+      </label>
+      <button class="cta-button" type="submit">Send request</button>
+    </form>
+
+    <div class="info-panel">
+      <h3>Visit us</h3>
+      <p>120 Energy Ave · Austin, TX</p>
+      <p>hello@pulsefitgym.com</p>
+      <p>512-555-0182</p>
+      <div class="hours">
+        <h4>Staffed hours</h4>
+        <p>Mon - Fri: 6am - 9pm</p>
+        <p>Sat - Sun: 8am - 6pm</p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
