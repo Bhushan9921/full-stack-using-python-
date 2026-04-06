@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="hero">
+  <div class="container hero-content">
+    <div>
+      <p class="tag">Community-first training</p>
+      <h1>Train smarter with a gym built for busy professionals.</h1>
+      <p class="subtitle">
+        PulseFit blends strength, conditioning, and recovery so you can keep momentum all year.
+        Join group classes, work one-on-one with elite coaches, or book a wellness consult.
+      </p>
+      <div class="hero-actions">
+        <a class="cta-button" href="{{ url_for('contact') }}">Start your plan</a>
+        <a class="secondary-button" href="{{ url_for('classes') }}">View class schedule</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3>Today's Highlights</h3>
+      <ul>
+        <li>5:30am · Strength Foundations</li>
+        <li>12:00pm · HIIT Ignite</li>
+        <li>6:15pm · Mobility Flow</li>
+      </ul>
+      <div class="metrics">
+        <div>
+          <span class="metric-number">350+</span>
+          <span class="metric-label">Active members</span>
+        </div>
+        <div>
+          <span class="metric-number">22</span>
+          <span class="metric-label">Weekly classes</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Signature classes</h2>
+      <p>Programs that balance strength, endurance, and recovery.</p>
+    </div>
+    <div class="card-grid">
+      {% for item in classes %}
+      <div class="info-card">
+        <h3>{{ item.name }}</h3>
+        <p>{{ item.duration }} · {{ item.level }}</p>
+        <p class="muted">Coach {{ item.coach }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="container">
+    <div class="section-header">
+      <h2>Meet your coaches</h2>
+      <p>Supportive, certified trainers who know how to build sustainable routines.</p>
+    </div>
+    <div class="card-grid">
+      {% for trainer in trainers %}
+      <div class="info-card">
+        <h3>{{ trainer.name }}</h3>
+        <p>{{ trainer.specialty }}</p>
+        <p class="muted">{{ trainer.experience }} of coaching</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container split">
+    <div>
+      <h2>Why PulseFit</h2>
+      <ul class="checklist">
+        <li>Personalized onboarding session and goal setting.</li>
+        <li>Smart programming that adapts every 6 weeks.</li>
+        <li>Recovery lounge with mobility tools and sauna access.</li>
+      </ul>
+    </div>
+    <div class="info-panel">
+      <h3>Member success snapshot</h3>
+      <p>
+        The average PulseFit member increases strength by 18% in 12 weeks while keeping stress
+        levels low.
+      </p>
+      <a class="secondary-button" href="{{ url_for('contact') }}">Talk to a coach</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

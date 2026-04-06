@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <h1>Weekly class schedule</h1>
+    <p>Choose the format that matches your goals and book your spot in advance.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="card-grid">
+      {% for item in classes %}
+      <div class="info-card">
+        <h3>{{ item.name }}</h3>
+        <p>{{ item.duration }} · {{ item.level }}</p>
+        <p class="muted">Led by Coach {{ item.coach }}</p>
+        <button class="secondary-button" type="button">Reserve seat</button>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}
